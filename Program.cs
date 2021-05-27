@@ -47,9 +47,13 @@ namespace Quest
 
                 Robe newRobe = new Robe();
                 {
-                    newRobe.RobeLength=5;
+                    newRobe.RobeLength = 5;
                     newRobe.AddRobeColor("blue");
-                   
+                    Console.Write(" ");
+                    newRobe.AddRobeColor("with cute lil sparkles");
+                    Console.Write(" ");
+                    newRobe.AddRobeColor("that glistens in the sunlight");
+
                 };
                 // Make a new "Adventurer" object using the "Adventurer" class
                 Console.WriteLine("What is your name?> ");

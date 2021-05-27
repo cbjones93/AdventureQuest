@@ -24,11 +24,6 @@ namespace Quest
     
         }
 
-        public Adventurer(string name)
-        {
-            Name = name;
-        }
-
 
         // This method returns a string that describes the Adventurer's status
         // Note one way to describe what this method does is:
@@ -58,10 +53,11 @@ namespace Quest
        public void GetDescription(){
           Console.Write($"{Name} is wearing a robe whose color is ");
           foreach(string color in ColorfulRobe.Colors){
-              Console.WriteLine($"{color}");
+              Console.Write($"{color} ");
           }
           Console.Write($"and the length of the robe is {ColorfulRobe.RobeLength} inches.");
-         
+          Console.WriteLine(" ");
+
        }
     }
 
