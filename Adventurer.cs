@@ -8,17 +8,25 @@ namespace Quest
         // This is an "immutable" property. It only has a "get".
         // The only place the Name can be set is in the Adventurer constructor
         // Note: the constructor is defined below.
+        public Robe ColorfulRobe { get; }
         public string Name { get; }
-
+       
         // This is a mutable property it has a "get" and a "set"
         //  So it can be read and changed by any code in the application
         public int Awesomeness { get; set; }
 
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name)
+        public Adventurer(string name, Robe robe)
         {
             Name = name;
             Awesomeness = 50;
+            ColorfulRobe= robe;
+    
+        }
+
+        public Adventurer(string name)
+        {
+            Name = name;
         }
 
 
@@ -47,6 +55,14 @@ namespace Quest
 
             return $"Adventurer, {Name}, is {status}";
         }
+       public void GetDescription(){
+          Console.Write($"{Name} is wearing a robe whose color is ");
+          foreach(string color in ColorfulRobe.Colors){
+              Console.WriteLine($"{color}");
+          }
+          Console.Write($"and the length of the robe is {ColorfulRobe.RobeLength} inches.");
+         
+       }
     }
 
     internal struct NewStruct
