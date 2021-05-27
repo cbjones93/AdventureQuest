@@ -35,6 +35,18 @@ namespace Quest
 ",
                     4, 20
                 );
+                Challenge aragorn = new Challenge(@"What character in the Lord of the Rings initially goes by the name 'Strider'?
+                  1) Frodo
+                  2) Aragorn
+                  3) Legolas
+                  4) Elrond
+                  ", 2, 20);
+                Challenge sting = new Challenge(@"What is the name of Frodo's sword?
+                  1) Glamdring
+                  2) Anduril
+                  3) Sting
+                  4) Excalibur
+                  ", 3, 20);
 
                 // "Awesomeness" is like our Adventurer's current "score"
                 // A higher Awesomeness is better
@@ -55,17 +67,18 @@ namespace Quest
                     newRobe.AddRobeColor("that glistens in the sunlight");
 
                 };
-                Hat newHat = new Hat();{
-                    newHat.ShininessLevel=5;
+                Hat newHat = new Hat();
+                {
+                    newHat.ShininessLevel = 5;
                 }
-               Prize bigPrize = new Prize("A Death Star!!!(use it wisely)");
-             
+                Prize bigPrize = new Prize("A Death Star!!!(use it wisely)");
+
                 // Make a new "Adventurer" object using the "Adventurer" class
                 Console.WriteLine("What is your name?> ");
                 string name = Console.ReadLine();
                 Adventurer theAdventurer = new Adventurer(name, newRobe, newHat);
                 theAdventurer.GetDescription();
-                
+
 
                 // A list of challenges for the Adventurer to complete
                 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -75,14 +88,31 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                sting,
+                aragorn
             };
 
                 // Loop through all the challenges and subject the Adventurer to them
-                foreach (Challenge challenge in challenges)
+                Random i = new Random();
+                List<int> indexes = new List<int> {};
+                while(indexes.Count <5)
                 {
-                    challenge.RunChallenge(theAdventurer);
+                    int candidate = i.Next(0, challenges.Count);
+                    if(!indexes.Contains(candidate)){
+                        indexes.Add(candidate);
+                    }
                 }
+
+                for(int x=0; x <indexes.Count; x++)
+                {
+                    int index = indexes[x];
+                    challenges[index].RunChallenge(theAdventurer);
+                }
+                // foreach (Challenge challenge in challenges)
+                // {
+                //     challenge.RunChallenge(theAdventurer);
+                // }
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
                 // And praises or humiliates them accordingly
