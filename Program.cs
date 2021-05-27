@@ -58,6 +58,8 @@ namespace Quest
                 Hat newHat = new Hat();{
                     newHat.ShininessLevel=5;
                 }
+               Prize bigPrize = new Prize("A Death Star!!!(use it wisely)");
+             
                 // Make a new "Adventurer" object using the "Adventurer" class
                 Console.WriteLine("What is your name?> ");
                 string name = Console.ReadLine();
@@ -96,7 +98,7 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
-
+                bigPrize.GimmePrize(theAdventurer);
                 Console.WriteLine("Would you like to try again? (Yes/No)");
                 string playAgain = Console.ReadLine().ToLower();
                 if (playAgain == "yes")
