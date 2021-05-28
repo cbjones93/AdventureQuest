@@ -11,6 +11,8 @@ namespace Quest
         public Robe ColorfulRobe { get; }
         public string Name { get; }
         public Hat MyHat { get; }
+        
+    public int Correct { get; set; }
        
         // This is a mutable property it has a "get" and a "set"
         //  So it can be read and changed by any code in the application

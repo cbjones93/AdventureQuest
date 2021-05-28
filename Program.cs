@@ -21,31 +21,42 @@ namespace Quest
                 Challenge theAnswer = new Challenge(
                     "What's the answer to life, the universe and everything?", 42, 25);
                 Challenge whatSecond = new Challenge(
-                    "What is the current second?", DateTime.Now.Second, 50);
+                    @"Which US state has the longest cave system in the world?
+                    1) Tennessee
+                    2) Kentucky
+                    3) Nevada
+                    4) North Dakota
+                    ", 2, 20);
 
-                int randomNumber = new Random().Next() % 10;
-                Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
+                // int randomNumber = new Random().Next() % 10;
+                Challenge guessRandom = new Challenge(@"What country has the most vending machines per capita?  
+                1) United States
+                2) England
+                3) China
+                4) Japan
+                "
+                 ,4, 25);
 
                 Challenge favoriteBeatle = new Challenge(
-                    @"Who's your favorite Beatle?
-    1) John
-    2) Paul
-    3) George
-    4) Ringo
+                    @"What is Proessor X's real name?
+                1) Charles Xavier
+                2) Scott Summers
+                3) Erik Lehnsherr
+                4) James Howelett
 ",
-                    4, 20
+                    1, 20
                 );
                 Challenge aragorn = new Challenge(@"What character in the Lord of the Rings initially goes by the name 'Strider'?
-                  1) Frodo
-                  2) Aragorn
-                  3) Legolas
-                  4) Elrond
+                1) Frodo
+                2) Aragorn
+                3) Legolas
+                4) Elrond
                   ", 2, 20);
                 Challenge sting = new Challenge(@"What is the name of Frodo's sword?
-                  1) Glamdring
-                  2) Anduril
-                  3) Sting
-                  4) Excalibur
+                1) Glamdring
+                2) Anduril
+                3) Sting
+                4) Excalibur
                   ", 3, 20);
 
                 // "Awesomeness" is like our Adventurer's current "score"
@@ -129,6 +140,8 @@ namespace Quest
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
                 bigPrize.GimmePrize(theAdventurer);
+                Console.WriteLine($"You have completed {theAdventurer.Correct} challenges!");
+                theAdventurer.Awesomeness = 50 + theAdventurer.Correct * 10;
                 Console.WriteLine("Would you like to try again? (Yes/No)");
                 string playAgain = Console.ReadLine().ToLower();
                 if (playAgain == "yes")
